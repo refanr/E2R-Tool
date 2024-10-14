@@ -1,5 +1,11 @@
 # Journal
 
+### 14.10 2024
+Downloading the MIM-GOLD and MIM datasets from clarin. I want to try out word embedding with word2vec using this data. 
+
+### 13.10 2024
+Keep working on extracting the text from the ruv.is/audskilid news items. I am trying to do this programmatically, but its not working out. I am thinking of extracting some manually, just to get started. 
+
 ### 10.10 2024
 
 I started gathering data last night and this morning. From what I can gather, I will need to pretrain a model on general text. I have available to me a lot of resources on clarin, Gigaword corpus, word frequency data, sentence standardization, etc. What I am missing is complex-to-simplified dataset, ruv.is produces some news items in an e2r form, which links to the news item in the original form, which might be a good starting point. This seems like it is about 39 e2r items, so it is quite tiny, maybe I can contact someone over at ruv to get access to more material.
