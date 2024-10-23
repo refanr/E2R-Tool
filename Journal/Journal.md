@@ -1,5 +1,8 @@
 # Journal
 
+### 23.10 2024
+Working on the dataset from class. I trained a BERT transformer model on this dataset, and am testing it out at the moment. If I can use this model to predict the competency level of the sentence input, maybe I can use the e2r news data to simplify the "normal" sentences, using the e2r sentences as a benchmark.
+
 ### 14.10 2024
 Downloading the MIM-GOLD and MIM datasets from clarin. I want to try out word embedding with word2vec using this data. 
 
