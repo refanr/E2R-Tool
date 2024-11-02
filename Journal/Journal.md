@@ -1,5 +1,8 @@
 # Journal
 
+### 2.11 2024
+It is kind of getting to a crunch time in this project, others too but that is besides the point. What I am focusing on the next few days is collecting data from the e2r news at ruv.is. I am not sure I can use the model from the l2 dataset, but we'll see.
+
 ### 23.10 2024
 Working on the dataset from class. I trained a BERT transformer model on this dataset, and am testing it out at the moment. If I can use this model to predict the competency level of the sentence input, maybe I can use the e2r news data to simplify the "normal" sentences, using the e2r sentences as a benchmark.
 
