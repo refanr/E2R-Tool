@@ -1,5 +1,9 @@
 # Journal
 
+### 3.11 2024
+Another thought came to mind. Use all the text from the e2r news items and analyze the sentences, words per sentence, number of syllables in words, type-token ratio TTR, to measure the "richness" of the language used. At least I will start by scraping all the text from all the news items in the e2r section.
+
+
 ### 2.11 2024
 It is kind of getting to a crunch time in this project, others too but that is besides the point. What I am focusing on the next few days is collecting data from the e2r news at ruv.is. I am not sure I can use the model from the l2 dataset, but we'll see. So I've just spend an hour and a half collecting data, this is really slow and I am not able to use any automation for this since the e2r news and the "normal" news are not completely the same, sometimes there are paragraphs in the "normal" version that have no corresponding paragraph in the e2r, and there are more definitions in the e2r versions.
 
