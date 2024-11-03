@@ -1,7 +1,7 @@
 # Journal
 
 ### 2.11 2024
-It is kind of getting to a crunch time in this project, others too but that is besides the point. What I am focusing on the next few days is collecting data from the e2r news at ruv.is. I am not sure I can use the model from the l2 dataset, but we'll see.
+It is kind of getting to a crunch time in this project, others too but that is besides the point. What I am focusing on the next few days is collecting data from the e2r news at ruv.is. I am not sure I can use the model from the l2 dataset, but we'll see. So I've just spend an hour and a half collecting data, this is really slow and I am not able to use any automation for this since the e2r news and the "normal" news are not completely the same, sometimes there are paragraphs in the "normal" version that have no corresponding paragraph in the e2r, and there are more definitions in the e2r versions.
 
 ### 23.10 2024
 Working on the dataset from class. I trained a BERT transformer model on this dataset, and am testing it out at the moment. If I can use this model to predict the competency level of the sentence input, maybe I can use the e2r news data to simplify the "normal" sentences, using the e2r sentences as a benchmark.
