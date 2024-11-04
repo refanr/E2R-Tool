@@ -1,24 +1,53 @@
 import xml.etree.ElementTree as ET
-import glob
 import os
 
-# Directory containing the XML files
-directory_path = "/Users/reynir/Documents/nlp/FINAL/repo/E2R-Tool/giga/IGC-News1-22.10.ana"
+# Path to the root XML file
+root_xml_path = "giga/IGC-News1-22.10.ana/IGC-News1-22.10.ana.xml"
 
-# Define the TEI namespace (you may need to adjust this if the URI differs in your files)
-TEI_NAMESPACE = {"tei": "http://www.tei-c.org/ns/1.0"}
+# Define the XInclude namespace
+NAMESPACES = {"xi": "http://www.w3.org/2001/XInclude"}
 
-# List to hold extracted text
-extracted_text = []
+# List to hold paths to linked XML files
+linked_files = []
 
-# Loop through all XML files in the directory
-for filename in glob.glob(os.path.join(directory_path, "*.xml")):
-    # Parse the XML file
-    tree = ET.parse(filename)
+# Parse the root XML file
+tree = ET.parse(root_xml_path)
+root = tree.getroot()
+
+# Find all <xi:include> elements and get the 'href' attribute
+for element in root.findall(".//xi:include", namespaces=NAMESPACES):
+    linked_file = element.get("href")
+    if linked_file:
+        # Resolve the relative path
+        linked_file_path = os.path.join(os.path.dirname(root_xml_path), linked_file.strip())
+        linked_files.append(linked_file_path)
+
+# List to hold paths to the actual content XML files
+content_files = []
+
+# Parse each subfolder XML file to find links to content files
+for subfolder_xml in linked_files:  # 'linked_files' is the list of subfolder XML files from the previous step
+    tree = ET.parse(subfolder_xml)
     root = tree.getroot()
 
-    # Extract text by specifying the namespace (replace "YourTargetTag" with the correct tag in TEI)
-    for element in root.findall(".//tei:YourTargetTag", namespaces=TEI_NAMESPACE):
+    # Find all <xi:include> elements in each subfolder XML to get the content file links
+    for element in root.findall(".//xi:include", namespaces=NAMESPACES):
+        content_file = element.get("href")
+        if content_file:
+            # Resolve the relative path based on the subfolder XML location
+            content_file_path = os.path.join(os.path.dirname(subfolder_xml), content_file.strip())
+            content_files.append(content_file_path)
+
+# List to hold extracted text content
+extracted_text = []
+
+# Extract text content from each content XML file
+for content_xml in content_files:
+    tree = ET.parse(content_xml)
+    root = tree.getroot()
+
+    # Extract text based on your target tag (e.g., 'p' or 'text'). Adjust "YourTargetTag" as needed.
+    for element in root.findall(".//xi:include", namespaces=NAMESPACES):  # Replace with correct tag
         text = element.text
         if text:
             extracted_text.append(text.strip())
@@ -28,3 +57,4 @@ with open("extracted_text.txt", "w", encoding="utf-8") as output_file:
     output_file.write("\n".join(extracted_text))
 
 print("Text extraction completed.")
+
