@@ -1,5 +1,9 @@
 # Journal
 
+### 4.11 2024 
+Data collection and a plan of action. I have been collecting the text from e2r news and "normal" news in seperate files. The plan is to use word frequency on a large corpus of icelandic text to find more/less commonly used words and use that as a complexity measure of the words, the rationale being that more commonly used words are less complex than their more seldom used counterparts. What I want to do is to run a sentence through my system and if it detects a word with a certain level of complexity, it will suggest a replacement from the word embeddings.
+Next thing I want to do is to use Greynir to analyze the sentence structure of e2r news compared to "normal" news. Maybe there is a sentence structure that is more used than others in the e2r news, and I can somehow use that to suggest a simpler sentence structure in the system.
+
 ### 3.11 2024
 Another thought came to mind. Use all the text from the e2r news items and analyze the sentences, words per sentence, number of syllables in words, type-token ratio TTR, to measure the "richness" of the language used. At least I will start by scraping all the text from all the news items in the e2r section.
 
