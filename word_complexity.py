@@ -45,16 +45,19 @@ extracted_text = []
 for content_xml in content_files:
     tree = ET.parse(content_xml)
     root = tree.getroot()
-
-    # Extract text based on your target tag (e.g., 'p' or 'text'). Adjust "YourTargetTag" as needed.
-    for element in root.findall(".//xi:include", namespaces=NAMESPACES):  # Replace with correct tag
+    if content_files.index(content_xml) % 100000 == 0:
+        print(content_files.index(content_xml))
+    # Extract text within <w> tags
+    for element in root.findall(".//w", namespaces=NAMESPACES):  # Target <w> tag specifically
         text = element.text
         if text:
             extracted_text.append(text.strip())
+            
 
 # Combine or save the extracted text as needed
 with open("extracted_text.txt", "w", encoding="utf-8") as output_file:
-    output_file.write("\n".join(extracted_text))
+    output_file.write(" ".join(extracted_text))  # Join with spaces to form readable text
 
-print("Text extraction completed.")
+print("Text extraction from <w> tags completed.")
+
 
